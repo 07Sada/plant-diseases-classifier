@@ -8,6 +8,7 @@ from src.entity.config_entity import ModelTrainerConfig
 from src.entity.artifact_entity import ModelTrainerArtifact
 from src.entity.artifact_entity import DataIngestionArtifact
 
+
 class ModelTrainer:
     
     try:

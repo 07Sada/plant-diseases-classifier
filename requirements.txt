@@ -1,4 +1,2 @@
-matplotlib
-torch
-torchaudio
-torchvision
+hf_hub_download
+ultralytics
