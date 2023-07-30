@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+artifacts
+demo.ipynb
+new_demo.ipynb
+logs
+data_clean.py
