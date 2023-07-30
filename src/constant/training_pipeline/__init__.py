@@ -30,7 +30,7 @@ MODEL TRAINER related constant start with MODEL_TRAINER var name
 """
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 
-MODEL_TRAINER_PRETRAINED_WEIGHT_NAME: str = "YOLOv8s-cls.pt"
+MODEL_TRAINER_PRETRAINED_WEIGHT_NAME: str = "yolov8s-cls.pt"
 
 MODEL_TRAINER_NO_EPOCHS: int = 1
 

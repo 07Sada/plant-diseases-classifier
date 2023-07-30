@@ -22,18 +22,18 @@ class ModelTrainer:
 
             model_config_file_name = self.model_trainer_config.weight_name.split('.')[0]
             print(model_config_file_name)
-
-            os.system(f"yolo task=classify mode=train model=yolov8n-cls.pt data={daset_path} epochs=1 imgsz=128")
             
             os.system(f"yolo task=classify mode=train model={self.model_trainer_config.weight_name} \
                 data={self.data_ingestion_artifact.dataset_path} epochs={self.model_trainer_config.no_epochs} \
                     imgsz=128 batch={self.model_trainer_config.batch_size} patience={self.model_trainer_config.patience}")
-
+            
+            os.makedirs("custom_model_weights", exist_ok=True)
             os.system("cp runs/classify/train/weights/best.pt custom_model_weights/")
+            
             os.makedirs(self.model_trainer_config.model_trainer_dir, exist_ok=True)
 
             
-            os.system(f"cp runs/detect/train/weights/best.pt {self.model_trainer_config.model_trainer_dir}/")
+            os.system(f"cp runs/classify/train/weights/best.pt {self.model_trainer_config.model_trainer_dir}/")
 
             model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path="custom_model_weights/best.pt",)
 

@@ -5,8 +5,11 @@ from src.components.data_ingestion import DataIngestion
 from src.components.data_validation import DataValidation
 from src.entity.config_entity import DataIngestionConfig
 from src.entity.config_entity import DataValidationConfig
+from src.entity.config_entity import ModelTrainerConfig
 from src.entity.artifact_entity import DataIngestionArtifact
 from src.entity.artifact_entity import DataValidationArtifact
+from src.entity.artifact_entity import ModelTrainerArtifact
+from src.components.model_trainer import ModelTrainer
 from src.logger import logging
 
 class TrainPipeline:
@@ -14,7 +17,7 @@ class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
         self.data_validation_config = DataValidationConfig()
-
+        self.model_trainer_config = ModelTrainerConfig()
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
         try:
@@ -30,6 +33,16 @@ class TrainPipeline:
         except Exception as e:
             raise PlantException(e, sys)
 
+    def start_model_trainer(self) -> ModelTrainerArtifact:
+        try:
+            data_ingestion_artifact = self.start_data_ingestion()
+            model_trainer = ModelTrainer(model_trainer_config=self.model_trainer_config,
+                                        data_ingestion_artifact=data_ingestion_artifact)
+            model_trainer_artifact = model_trainer.initiate_model_trainer()
+            return model_trainer_artifact
+
+        except Exception as e:
+            raise PlantException(e, sys)
 
     def start_data_validation(self, data_ingestion_artifact: DataIngestionArtifact) -> DataValidationArtifact:
         logging.info("Entered the start_data_validation method of TrainPipeline class")

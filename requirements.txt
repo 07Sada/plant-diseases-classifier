@@ -1,2 +1,2 @@
-hf_hub_download
+huggingface-hub
 ultralytics
