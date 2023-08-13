@@ -5,6 +5,11 @@
 ## Disease Detection:
 The model excels at identifying diverse leaf diseases. With training encompassing 38 distinct disease cases, it demonstrates robust detection capabilities across a wide range of plant health issues.
 
+## Application:
+Try the application at huggingface space
+ 
+Application [link](https://huggingface.co/spaces/Sadashiv/CropGaurd)
+
 ## Demo:
 ### Input Page
 <img src="https://github.com/07Sada/plant-diseases-classifier/assets/112761379/98ff93bb-afed-4445-b63b-2ff0f9126831" alt="Image 1" width="800">
@@ -27,6 +32,9 @@ However, to simplify retrieval, the dataset is stored within Hugging Face's plat
 <a> <img src="https://www.vectorlogo.zone/logos/python/python-horizontal.svg" alt='Image 2' widht='100'/></a> 
 <a> <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt='Image 2' widht='100'/></a> 
 <a> <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt='Image 2' widht='100'/></a> 
-
-
 </p>
+
+## Model Architecture:
+The Yolov8 model architecture is employed for this project.
+
+[Link](https://github.com/ultralytics/ultralytics) for official github repository
